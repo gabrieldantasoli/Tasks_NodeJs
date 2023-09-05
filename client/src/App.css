@@ -26,13 +26,15 @@
 
 .a_button {
   padding: 0.5rem 1rem;
-  margin: 1rem;
+  margin: 0.5rem 1rem;
   border: 2px solid var(--blue2);
   color: var(--blue1);
   font-weight: 700;
+  text-align: center;
   font-size: 1.25rem;
   border-radius: 0.8rem;
-  transition: var(--transition);;
+  transition: var(--transition);
+  min-width: 200px;
 }
 
 .a_button:hover {

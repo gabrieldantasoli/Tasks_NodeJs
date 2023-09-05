@@ -1,5 +1,32 @@
-img {
-    width: 50px;
+section.home {
+    min-height: 100vh;
+}
+
+section.home .landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section.home .landing .buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+section.home .landing .info {
+    text-align: center;
+}
+
+section.home .landing .info img {
+    width: 80%;
+    max-width: 400px;
+}
+
+section.home .landing .info p {
+    color: var(--gray1);
+    max-width: 500px;
+    font-size: 0.9rem;
 }
 
 p {
