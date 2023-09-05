@@ -1,38 +1,80 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --blue1: #0074cc;
+  --blue2: #0099ff;
+  --blue3: #5bc0de;
+  
+  --gray1: #333333;
+  --gray2: #e6e6e6;
+  --gray3: #f2f2f2;
+
+  --black: #1a1a1a;
+  --white: #fdfdfd;
+
+  --transition: 0.4s ease-in-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  color: var(--black);
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.a_button {
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border: 2px solid var(--blue2);
+  color: var(--blue1);
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 0.8rem;
+  transition: var(--transition);;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.a_button:hover {
+  box-shadow: 0 0 10px var(--blue2);
+  border: none;
+  color: var(--white);
+  background-color: var(--blue1);
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Vermelho: #FF5733
+Laranja: #FFA833
+Amarelo: #FFD433
+Verde Limão: #A8FF33
+Verde: #33FF57
+Verde-azulado: #33FFA8
+Ciano: #33FFD4
+Azul-claro: #33A8FF
+Azul: #3362FF
+Azul-roxo: #3333FF
+Roxo-azulado: #6B33FF
+Roxo: #9333FF
+Magenta: #D433FF
+Rosa: #FF33D4
+Vermelho-rosa: #FF33A8
+Vermelho-escuro: #FF3362
+Marrom-avermelhado: #8B4513
+Marrom-escuro: #663300
+Cinza-escuro: #333333 */
