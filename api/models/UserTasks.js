@@ -7,6 +7,11 @@ const UserTasks = new mongoose.Schema(
             ref: "User",
             required: true,
         },
+        type_task: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "UserTypeOfTasks",
+            required: true,
+        },
         task_name : {
             type: String,
             required: true,

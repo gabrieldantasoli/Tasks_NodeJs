@@ -1,14 +1,15 @@
 import React from 'react';
+import { DashboardHeader } from '../../components';
 
 //IMPORTANDO O CSS
 import './dashboard.css';
-import { DashboardHeader } from '../../components';
 
 export default () => {
 
     return (
         <section className='dashboard'>
-            <DashboardHeader />
+            <DashboardHeader currentLink="all" className="header"/>
+
         </section>
     )
 }

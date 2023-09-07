@@ -1,23 +1,24 @@
 import mongoose from "mongoose";
 
-const UserTypeOfTasks = new mongoose.Schema(
+const UserTypeOfTasksSchema = new mongoose.Schema(
     {   
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true,
         },
-        type : {
+        type_of: {
             type: String,
             required: true,
-            unique: true
         },
-        color : {
+        color: {
             type: String,
             required: true,
         },
     },
     { timestamps: true } 
-); 
+);
 
-export default mongoose.model("UserTypeOfTaks", UserTypeOfTasks);
+UserTypeOfTasksSchema.index({ user: 1, type_of: 1 }, { unique: true });
+
+export default mongoose.model("UserTypeOfTasks", UserTypeOfTasksSchema);

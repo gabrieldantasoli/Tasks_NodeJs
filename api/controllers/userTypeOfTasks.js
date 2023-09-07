@@ -2,7 +2,6 @@ import UserTypeOfTasks from "../models/UserTypeOfTasks.js";
 
 export const createUserTypeOfTasks = async (req, res, next) => {
     try {
-  
       const newUserTypeOfTasks = new UserTypeOfTasks({
         ...req.body,
       });
@@ -47,14 +46,14 @@ export const getUserTypeOfTasks = async (req, res, next) => {
 
 export const countUserTypeOfTasks = async (req, res, next) => {
     try {
-        const userTypeOfTasksCount = await UserTypeOfTasks.countDocuments({"user": req.params.id, "type": req.params.type});
+        const userTypeOfTasksCount = await UserTypeOfTasks.countDocuments({"user": req.params.id, "type_of": req.params.type});
         res.status(200).json(userTypeOfTasksCount);
     } catch (err) {
         next(err);
     }
 };
 
-export const getUserTask = async (req, res, next) => {
+export const getUserTypeOfTask = async (req, res, next) => {
     try {
         const userTask = await UserTypeOfTasks.find({"user": req.params.id, "_id": req.params.id});
         res.status(200).json(userTask);

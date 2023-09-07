@@ -1,14 +1,19 @@
 import UserTask from "../models/UserTasks.js";
+import UserTypeOfTasks from "../models/UserTypeOfTasks.js";
 
 export const createUserTask = async (req, res, next) => {
     try {
-  
-      const newUserTask = new UserTask({
-        ...req.body,
-      });
-  
-      await newUserTask.save();
-      res.status(200).send("Task has been created sucessfuly!");
+        try {
+            const newUserTask = new UserTask({
+                ...req.body,
+            });
+    
+            await newUserTask.save();
+            res.status(200).send("Task has been created sucessfuly!");
+        } catch (e) {
+            res.status(400).send("Type Of Task Not Found!")    
+        }
+      
     } catch (err) {
       next(err);
     }
@@ -45,14 +50,14 @@ export const getUserTasks = async (req, res, next) => {
     }
 };
 
-// export const countUserTasks = async (req, res, next) => {
-//     try {
-//         const userTasksCount = await UserTask.countDocuments({"user": req.params.id});
-//         res.status(200).json(userTasksCount);
-//     } catch (err) {
-//         next(err);
-//     }
-// };
+export const countUserTasks = async (req, res, next) => {
+    try {
+        const userTasksCount = await UserTask.countDocuments({"user": req.params.id, "type_task": req.params.type});
+        res.status(200).json(userTasksCount);
+    } catch (err) {
+        next(err);
+    }
+};
 
 export const getUserTask = async (req, res, next) => {
     try {
