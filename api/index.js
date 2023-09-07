@@ -6,6 +6,7 @@ import cors from "cors";
 
 import authRoute from "./routes/auth.js";
 import userRoute from "./routes/users.js"
+import userTasksRoute from "./routes/userTasks.js";
 
 const app = express();
 dotenv.config();
@@ -29,6 +30,7 @@ app.use(express.json());
 
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/user_tasks", userTasksRoute);
 //  Demais rotas aqui
 
 app.use((err, req, res, next) => {

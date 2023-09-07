@@ -1,0 +1,56 @@
+section.auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 1.5rem;
+}
+
+section.auth h3 {
+    font-size: 2rem;
+    color: var(--blue2);
+}
+
+section.auth form label {
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+section.auth button {
+    margin: 0.6rem 0 1rem 0;
+    font-weight: 900;
+    font-size: 1.2rem;
+    padding: 0.25rem 0;
+    color: var(--blue2);
+    background-color: transparent;
+    border: 2px solid var(--blue2);
+    border-radius: 0.7rem;
+    transition: 0.5s ease-in-out;
+}
+
+section.auth button:hover {
+    background-color: var(--blue2);
+    color: var(--white);
+    box-shadow: 0 0 10px var(--blue2);
+}
+
+section.auth form {
+    display: flex;
+    flex-direction: column;
+}
+
+section.auth input {
+    padding: 0.2rem 0.6rem;
+}
+
+section.auth img {
+    width: 40vw;
+    max-width: 300px;
+}
+
+section.auth .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

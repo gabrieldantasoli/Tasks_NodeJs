@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Logo from "../../imgs/login.png"
+import Logo from "../../imgs/register.png"
 //IMPORTANDO O CSS
-import './login.css';
+import '../login/login.css';
 
 export default () => {
     const [username, setUsername] = useState("");
@@ -20,15 +20,15 @@ export default () => {
             </div>
             <div className="authForm">
                 <form action="POST">
-                    <h3>Login</h3>
+                    <h3>Register</h3>
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" id="username" onChange={(e) => setUsername(e.target.value)} value={username} placeholder='Username' />
                     <label htmlFor="password">Password:</label>
                     <input type="text" name="password" id="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder='Password' />
-                    <button>login</button>
+                    <button>register</button>
                 </form>
                 <hr />
-                <p>Don't have an account? <a href="/register">register</a></p>
+                <p>Already have an account? <a href="/login">login</a></p>
             </div>
         </section>
     )
