@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { AddTypeTask, Dashboard, Home, Login, Register } from '../pages';
 import { AuthContext } from '../context/authContext';
+import AddTask from '../pages/addTask';
 
 
 export default () => {
@@ -27,6 +28,13 @@ export default () => {
                 : 
                 <Route path='/dashboard/add_type_task' element={<Login />} /> 
             }
+
+            { user != null ? 
+                <Route path='/dashboard/add_task' element={<AddTask />} /> 
+                : 
+                <Route path='/dashboard/add_task' element={<Login />} /> 
+            }
+
 
             <Route path='/*' element={<Home />} />
         </Routes>

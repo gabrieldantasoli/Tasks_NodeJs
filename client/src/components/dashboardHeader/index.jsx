@@ -3,7 +3,7 @@ import axios from "axios";
 import { AuthContext } from '../../context/authContext';
 
 
-export default () => {
+export default ({type}) => {
 
     const [tasks, setTasks] = useState([]);
     const [types, setTypes] = useState({});
@@ -45,7 +45,7 @@ export default () => {
                 <h2>Dashboard</h2>
                 <div className='task_buttons'>
                     <a href='/dashboard/add_type_task'>Add Type Of TAsk</a>
-                    <a>New Task</a>
+                    <a href='/dashboard/add_task'>New Task</a>
                 </div>
                 <hr />
             </header>

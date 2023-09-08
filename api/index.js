@@ -33,7 +33,6 @@ app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/user_tasks", userTasksRoute);
 app.use("/type_tasks", userTypeTasks);
-//  Demais rotas aqui
 
 app.use((err, req, res, next) => {
     const errorStatus = err.status || 500;
