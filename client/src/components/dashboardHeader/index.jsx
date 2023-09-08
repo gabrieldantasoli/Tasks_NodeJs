@@ -2,50 +2,65 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { AuthContext } from '../../context/authContext';
 
-//IMPORTANDO O CSS
-import './dashboardHeader.css';
+export default () => {
 
-export default ({currentLink}) => {
+    const [tasks, setTasks] = useState([]);
+    const [types, setTypes] = useState({});
 
-    const [types, setTypes] = useState([]);
+    const { user } = useContext(AuthContext);
 
-    const { user, dispatch } = useContext(AuthContext);
+    const getUserTasks = async () => {
+        const res = await axios.get(`/user_tasks/${user._id}`);
+        console.log(res.data);
+        setTasks(res.data);
+    }
 
     const handleGetTypes = async () => {
-        const res = await axios.get(`/type_tasks/${user._id}`);
-        const data = res.data;
-
-        for (let index in data) {
-            const type = await axios.get(`/user_tasks/count/${user._id}/${data[index]._id}`);
-            data[index].len = type.data;
-            console.log(data[index]);
+        try {
+          const res = await axios.get(`/type_tasks/${user._id}`);
+          const data = res.data;
+      
+          let dict = {};
+          for (let index in data) {
+            dict[data[index]._id] = data[index].color;
+          }
+          console.log(dict);
+      
+          setTypes(dict);
+        } catch (error) {
+          console.error("Erro ao buscar tipos de tarefas:", error);
         }
-
-        setTypes(data);
-    }
-
-    const handleLogout = async (e) => {
-        e.preventDefault();
-        dispatch({ type: "LOGOUT" });
-    }
+      };
+      
 
     useEffect(() => {
-        handleGetTypes();
+        getUserTasks();   
+        handleGetTypes(); 
     }, []);
 
     return (
-        <section className='dashboardHeader'>
-            <ul>
-                <li className={currentLink == "all" ? "active" : ""}>Dashboard</li>
-
+        <section className='dashboardItem'>
+            <header>
+                <h2>Dashboard</h2>
+                <div className='task_buttons'>
+                    <button>Add Type Of TAsk</button>
+                    <button>New Task</button>
+                </div>
+                <hr />
+            </header>
+            { tasks.length == 0 ? <p>Nenhuma task encontrada! Adicione Alguma.</p> : ""}
+            <div className="tasks">
                 {
-                    types.map((type, index) => (
-                        <li key={index}><span>{type.type_of}</span> <span style={{"background-color": type.color}}>{type.len}</span></li>
+                    tasks.map((item, index) => (
+                        <div key={index} className="taskItem">
+                            <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}</p>
+                            <p>Delivery: {item.task_date_delivery}</p>
+                            <p>Priority: {item.task_priority}/10</p>
+                            <p>Complete: {item.task_complete_porcent}%</p>
+                        </div>
                     ))
                 }
-            </ul>
-
-            <button onClick={handleLogout}>LogOut</button>
+            </div>
         </section>
     )
 }

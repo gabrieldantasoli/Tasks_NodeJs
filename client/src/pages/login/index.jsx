@@ -24,7 +24,6 @@ export default () => {
                 "username": username,
                 "password": password
             }
-            console.log(info);
             const res = await axios.post("/auth/login", info);
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
             navigate("/dashboard")
