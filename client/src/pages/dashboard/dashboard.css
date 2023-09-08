@@ -103,7 +103,7 @@ section.dashboardItem header .task_buttons {
     width: calc(100% - 1rem);
 }
 
-section.dashboardItem header .task_buttons button {
+section.dashboardItem header .task_buttons a {
     padding: 0.1rem 0.4rem;
     font-weight: 600;
     color: rgb(30, 243, 30);
@@ -113,7 +113,7 @@ section.dashboardItem header .task_buttons button {
     transition: 0.4s ease-in-out;
 }
 
-section.dashboardItem header .task_buttons button:hover {
+section.dashboardItem header .task_buttons a:hover {
     background-color: rgb(30, 243, 30);
     color: var(--white);
     box-shadow: 0 0 10px rgb(30, 243, 30);
@@ -135,4 +135,15 @@ section.dashboardItem .taskItem {
 
 section.dashboardItem .taskItem p {
     margin: 0;
+    border-radius: 0.8rem 0.8rem 0 0;
+    padding: 0 0.5rem;
+    font-weight: 500;
+}
+
+section.dashboardItem .taskItem p:nth-child(1) {
+    font-weight: 700;
+}
+
+p.center {
+    text-align: center;
 }

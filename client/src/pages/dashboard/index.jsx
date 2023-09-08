@@ -49,7 +49,8 @@ export default () => {
 
                 <button onClick={handleLogout} className='log'>LogOut</button>
             </div>
-            <DashboardHeader />
+            { currentLink == "all" ? <DashboardHeader /> : ""}
+            
         </section>
     )
 }

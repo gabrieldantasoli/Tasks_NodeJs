@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { AuthContext } from '../../context/authContext';
 
+
 export default () => {
 
     const [tasks, setTasks] = useState([]);
@@ -43,12 +44,12 @@ export default () => {
             <header>
                 <h2>Dashboard</h2>
                 <div className='task_buttons'>
-                    <button>Add Type Of TAsk</button>
-                    <button>New Task</button>
+                    <a href='/dashboard/add_type_task'>Add Type Of TAsk</a>
+                    <a>New Task</a>
                 </div>
                 <hr />
             </header>
-            { tasks.length == 0 ? <p>Nenhuma task encontrada! Adicione Alguma.</p> : ""}
+            { tasks.length == 0 ? <p className='center'>Nenhuma task encontrada! Adicione Alguma.</p> : ""}
             <div className="tasks">
                 {
                     tasks.map((item, index) => (
