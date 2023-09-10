@@ -9,7 +9,7 @@ const TaskCommentsSchema = new mongoose.Schema(
         },
         task: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Task",
+            ref: "UserTAsks",
             required: true,
         },
         commentText: {
