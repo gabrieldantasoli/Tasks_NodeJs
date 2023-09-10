@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { AuthContext } from '../../context/authContext';
-
+import './index.css'
 
 export default ({type}) => {
 
@@ -54,7 +54,9 @@ export default ({type}) => {
                 {
                     tasks.map((item, index) => (
                         <div key={index} className="taskItem">
-                            <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}</p>
+                            <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}
+                                <button id="removeTask" type="button">x</button>
+                            </p>
                             <p>Delivery: {item.task_date_delivery}</p>
                             <p>Priority: {item.task_priority}/10</p>
                             <p>Complete: {item.task_complete_porcent}%</p>

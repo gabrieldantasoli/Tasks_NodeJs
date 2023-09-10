@@ -38,11 +38,17 @@ export default () => {
         <section className='dashboardHeader'>
             <div className="header">
                 <ul>
-                    <li onClick={(e) => setCurrentLink("all")} className={currentLink == "all" ? "active" : ""}>Dashboard</li>
+                    <li onClick={(e) => setCurrentLink("all")} className={currentLink == "all" ? "active" : ""}>
+                        Dashboard
+                    </li>
 
                     {
                         types.map((type, index) => (
-                            <li key={index} className={currentLink == type.type_of ? "active" : ""} onClick={(e) => setCurrentLink(type.type_of)} ><span>{type.type_of}</span> <span style={{"background-color": type.color}}>{type.len}</span></li>
+                            <li 
+                                key={index} className={currentLink == type.type_of ? "active" : ""} 
+                                onClick={(e) => setCurrentLink(type.type_of)} >
+                                <span>{type.type_of}</span> <span style={{"background-color": type.color}}>{type.len}</span>
+                            </li>
                         ))
                     }
                 </ul>
