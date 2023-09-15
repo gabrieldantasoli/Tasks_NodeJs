@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { AddTypeTask, Dashboard, Home, Login, Register } from '../pages';
 import { AuthContext } from '../context/authContext';
 import AddTask from '../pages/addTask';
+import TaskPage from '../pages/taskPage';
 
 
 export default () => {
@@ -21,6 +22,12 @@ export default () => {
                 <Route path='/dashboard' element={<Dashboard />} /> 
                 : 
                 <Route path='/dashboard' element={<Login />} /> 
+            }
+
+            { user != null ? 
+                <Route path='/dashboard/task_page/:id' element={<TaskPage />} /> 
+                : 
+                <Route path='/dashboard/task_page/:id' element={<Login />} /> 
             }
 
             { user != null ? 

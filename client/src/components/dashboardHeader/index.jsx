@@ -53,12 +53,15 @@ export default ({type}) => {
             <div className="tasks">
                 {
                     tasks.map((item, index) => (
-                        <div key={index} className="taskItem">
-                            <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}</p>
-                            <p>Delivery: {item.task_date_delivery}</p>
-                            <p>Priority: {item.task_priority}/10</p>
-                            <p>Complete: {item.task_complete_porcent}%</p>
-                        </div>
+                        <a href={`/dashboard/task_page/${item._id}`}>
+                            <div key={index} className="taskItem">
+                                <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}</p>
+                                <p>Delivery: {item.task_date_delivery}</p>
+                                <p>Priority: {item.task_priority}/10</p>
+                                <p>Complete: {item.task_complete_porcent}%</p>
+                            </div>
+                        </a>
+                        
                     ))
                 }
             </div>
