@@ -1,0 +1,73 @@
+.main {
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-image: url(../../imgs/bg.jpg);
+    background-color: #f4f4f4;
+    background-position: center;
+    background-size: cover;
+    color: #333;
+    padding: 30px;
+}
+
+.taskPage {
+    background-color: #efefef;
+    max-width: 600px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin: 0 0 300px;
+    text-align: center;
+}
+
+.todo {
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+}
+
+.submit {
+    margin-top: 8px;
+    background-color: #333974;
+    color: #FFF;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.submit:hover {
+    opacity: 1;
+}
+
+input, select {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #DDD;
+    width: 100%;
+    border-radius: 3px;
+}
+
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+.removeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+    font-size: 1.4rem;
+    width: 30px;
+    height: 30px;
+    background-color: #D9534F;
+    color: #fff;
+}
+
+.taskDesc {
+    background-color: #e5deb3;
+    padding: 9px 5px;
+}
+
+.todoForm {
+    margin-top: 60px;
+}

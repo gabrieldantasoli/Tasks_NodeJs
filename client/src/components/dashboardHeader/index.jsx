@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { AuthContext } from '../../context/authContext';
-
+import './index.css'
 
 export default ({type}) => {
 
@@ -53,6 +53,7 @@ export default ({type}) => {
             <div className="tasks">
                 {
                     tasks.map((item, index) => (
+
                         <a href={`/dashboard/task_page/${item._id}`}>
                             <div key={index} className="taskItem">
                                 <p className='name' style={{"backgroundColor": types[item.type_task]}}>{item.task_name}</p>
@@ -62,6 +63,7 @@ export default ({type}) => {
                             </div>
                         </a>
                         
+
                     ))
                 }
             </div>

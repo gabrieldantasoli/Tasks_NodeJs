@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/", verifyUser, createUserTask);
 
-router.put("/update/:id", verifyUser, updateUserTask);
+router.put("/:id", verifyUser, updateUserTask);
 
 router.get("/:user/:id", verifyUser, getUserTask);
 

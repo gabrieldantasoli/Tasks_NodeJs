@@ -46,7 +46,7 @@ export const getUserTypeOfTasks = async (req, res, next) => {
 
 export const countUserTypeOfTasks = async (req, res, next) => {
     try {
-        const userTypeOfTasksCount = await UserTypeOfTasks.countDocuments({"user": req.params.id, "type_of": req.params.type});
+        const userTypeOfTasksCount = await UserTypeOfTasks.countDocuments({"user": req.params.user, "type_of": req.params.id});
         res.status(200).json(userTypeOfTasksCount);
     } catch (err) {
         next(err);
@@ -55,7 +55,7 @@ export const countUserTypeOfTasks = async (req, res, next) => {
 
 export const getUserTypeOfTask = async (req, res, next) => {
     try {
-        const userTask = await UserTypeOfTasks.find({"user": req.params.id, "_id": req.params.id});
+        const userTask = await UserTypeOfTasks.find({"user": req.params.user, "_id": req.params.id});
         res.status(200).json(userTask);
     } catch (err) {
         next(err);
