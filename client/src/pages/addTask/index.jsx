@@ -29,7 +29,7 @@ export default () => {
 
     const handleGetTypes = async () => {
         try {
-          const res = await axios.get(`/type_tasks/${user._id}`);
+          const res = await axios.get(`https://task-codex-2.onrender.com/type_tasks/${user._id}`);
           const data = res.data;
       
           let dict = {};
@@ -42,6 +42,7 @@ export default () => {
           console.error("Erro ao buscar tipos de tarefas:", error);
         }
     };
+      
     
     const handleCreateTask = async (e) => {
         e.preventDefault();
@@ -55,9 +56,10 @@ export default () => {
             "task_obs": taskObs.split(","),
             "task_complete_porcent": taskCompletePorcent
         }
+        console.log(task);
 
         try {
-            const res = axios.post(`/user_tasks`, task);
+            const res = axios.post(`https://task-codex-2.onrender.com/user_tasks`, task);
             toast.success("Task Created Successfuly!");
             navigate("/dashboard");
         } catch (err) {

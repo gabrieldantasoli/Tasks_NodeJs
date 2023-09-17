@@ -23,7 +23,7 @@ export default () => {
               "username": username,
               "password": password
             }
-            await axios.post("/auth/register", info);
+            await axios.post("https://task-codex-2.onrender.com/auth/register", info);
             navigate("/login")
             toast.success("Registered user!")
         } catch (err) {

@@ -14,11 +14,11 @@ export default () => {
     const { user, dispatch } = useContext(AuthContext);
 
     const handleGetTypes = async () => {
-        const res = await axios.get(`/type_tasks/${user._id}`);
+        const res = await axios.get(`https://task-codex-2.onrender.com/type_tasks/${user._id}`);
         const data = res.data;
 
         for (let index in data) {
-            const type = await axios.get(`/user_tasks/count/${user._id}/${data[index]._id}`);
+            const type = await axios.get(`https://task-codex-2.onrender.com/user_tasks/count/${user._id}/${data[index]._id}`);
             data[index].len = type.data;
         }
 
@@ -27,6 +27,7 @@ export default () => {
 
     const handleLogout = async (e) => {
         e.preventDefault();
+        localStorage.removeItem('token');
         dispatch({ type: "LOGOUT" });
     }
 
@@ -43,14 +44,15 @@ export default () => {
                     </li>
 
                     {
+                        Array.isArray(types) &&
                         types.map((type, index) => (
                             <li 
-                                key={index} className={currentLink == type.type_of ? "active" : ""} 
-                                onClick={(e) => setCurrentLink(type.type_of)} >
-                                <span>{type.type_of}</span> <span style={{"background-color": type.color}}>{type.len}</span>
+                                key={index} className={currentLink == type.type_of ? "active" : ""}>
+                                <span>{type.type_of}</span> <span style={{"backgroundColor": type.color}}>{type.len}</span>
                             </li>
                         ))
                     }
+
                 </ul>
 
                 <button onClick={handleLogout} className='log'>LogOut</button>

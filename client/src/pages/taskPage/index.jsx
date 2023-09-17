@@ -30,7 +30,7 @@ export default () => {
     const removeTask = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.delete(`/user_tasks/${id}`);
+            const res = await axios.delete(`https://task-codex-2.onrender.com/user_tasks/${id}`);
             navigate("/dashboard")
             toast.success("A tarefa foi deletada!")
             
@@ -54,7 +54,7 @@ export default () => {
         console.log(task1);
 
         try {
-            const res = axios.put(`/user_tasks/${id}`, task1);
+            const res = axios.put(`https://task-codex-2.onrender.com/user_tasks/${id}`, task1);
             toast.success("Task Created Successfuly!");
             navigate(`/dashboard/`);
         } catch (err) {
@@ -63,12 +63,12 @@ export default () => {
     };
 
     const getData = async () => {
-        const res = await axios.get(`/user_tasks/${user._id}/${id}`);
+        const res = await axios.get(`https://task-codex-2.onrender.com/user_tasks/${user._id}/${id}`);
         const data = res.data;
 
         const id1 = data[0].type_task;
 
-        const res1 = await axios.get(`/type_tasks/${user._id}/${id1}`);
+        const res1 = await axios.get(`https://task-codex-2.onrender.com/type_tasks/${user._id}/${id1}`);
 
         setType(res1.data[0])
         setTodo(data[0]);

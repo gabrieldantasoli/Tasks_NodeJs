@@ -11,14 +11,14 @@ export default ({type}) => {
     const { user } = useContext(AuthContext);
 
     const getUserTasks = async () => {
-        const res = await axios.get(`/user_tasks/${user._id}`);
+        const res = await axios.get(`https://task-codex-2.onrender.com/user_tasks/${user._id}`);
         console.log(res.data);
         setTasks(res.data);
     }
 
     const handleGetTypes = async () => {
         try {
-          const res = await axios.get(`/type_tasks/${user._id}`);
+          const res = await axios.get(`https://task-codex-2.onrender.com/type_tasks/${user._id}`);
           const data = res.data;
       
           let dict = {};
@@ -52,6 +52,7 @@ export default ({type}) => {
             { tasks.length == 0 ? <p className='center'>Nenhuma task encontrada! Adicione Alguma.</p> : ""}
             <div className="tasks">
                 {
+                    Array.isArray(tasks) &&
                     tasks.map((item, index) => (
 
                         <a href={`/dashboard/task_page/${item._id}`}>

@@ -19,5 +19,5 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.0"
   },
-  "proxy": "http://localhost:8800"
+  "proxy": "https://task-codex-2.onrender.com/"
 }

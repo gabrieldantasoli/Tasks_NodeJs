@@ -18,14 +18,15 @@ export default () => {
 
   const createTypeTask = async (e) => {
     e.preventDefault();
-    const typeTask = {
-      user: user._id,
-      type_of: typeOf,
-      color: color,
-    };
 
     try {
-        const res = await axios.post(`/type_tasks`, typeTask);
+        const typeTask = {
+          user: user._id,
+          type_of: typeOf,
+          color: color,
+        };
+
+        const res = await axios.post(`https://task-codex-2.onrender.com/type_tasks`, typeTask);
         toast.success("Type of task created!");
         navigate("/dashboard");
     } catch (err) {

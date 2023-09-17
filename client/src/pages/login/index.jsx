@@ -24,7 +24,8 @@ export default () => {
                 "username": username,
                 "password": password
             }
-            const res = await axios.post("/auth/login", info);
+            const res = await axios.post("https://task-codex-2.onrender.com/auth/login", info);
+            
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
             navigate("/dashboard")
             toast.success("You are logged in!")
@@ -33,6 +34,7 @@ export default () => {
             dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
         }
     }
+    
 
     return (
         <section className='auth'>
