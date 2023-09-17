@@ -19,5 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.5.0"
   },
-  "proxy": "http://localhost:8800"
+  "proxy": "http://localhost:8800",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
