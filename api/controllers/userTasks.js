@@ -7,7 +7,6 @@ export const createUserTask = async (req, res, next) => {
             const newUserTask = new UserTask({
                 ...req.body,
             });
-    
             await newUserTask.save();
             res.status(200).send("Task has been created sucessfuly!");
         } catch (e) {
